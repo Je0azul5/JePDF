@@ -19,6 +19,10 @@ open dist/JePDF.app
 
 El script genera una app para la arquitectura del Mac donde se compila y la firma localmente. También crea `dist/JePDF.zip` sin atributos extendidos: si la carpeta del proyecto está sincronizada con iCloud, descomprime ese ZIP en una carpeta local antes de abrirlo para evitar que los metadatos de sincronización afecten a la firma. La distribución pública requiere configurar un identificador propio, firma Developer ID y notarización de Apple.
 
+## Apariencia
+
+El selector de la barra superior permite elegir **Claro**, **Oscuro** o **Sistema**. La preferencia se guarda entre aperturas y se aplica al catálogo, los paneles de herramientas y los diálogos nativos. El documento PDF conserva sus colores originales.
+
 ## Herramientas disponibles
 
 - Unir PDF y ordenar los archivos antes de unirlos.
@@ -57,6 +61,6 @@ Las siete comprobaciones generan sus propios documentos y cubren rangos inválid
 
 ## Estado de validación
 
-Versión experimental 0.1.2. La compresión ahora dibuja la imagen al tamaño físico original en vez de modificar la caja de una página de imagen; conserva la rotación y las cajas del PDF. Compilación optimizada para Apple Silicon y siete comprobaciones del motor superadas. La firma local del paquete ZIP se verificó después de extraerlo en una carpeta temporal. Se inspeccionaron visualmente el catálogo y el panel de herramientas; no se pudo confirmar el flujo completo de apertura y guardado mediante la automatización de ventanas, que empezó a devolver errores de tiempo de espera después de seleccionar un archivo. Ese recorrido sigue pendiente de una comprobación manual.
+Versión experimental 0.1.3. La compresión ahora dibuja la imagen al tamaño físico original en vez de modificar la caja de una página de imagen; conserva la rotación y las cajas del PDF. Compilación optimizada para Apple Silicon y siete comprobaciones del motor superadas. La firma local del paquete ZIP se verificó después de extraerlo en una carpeta temporal. Se inspeccionaron visualmente el catálogo y el panel de herramientas; no se pudo confirmar el flujo completo de apertura y guardado mediante la automatización de ventanas, que empezó a devolver errores de tiempo de espera después de seleccionar un archivo. Ese recorrido sigue pendiente de una comprobación manual.
 
 Copyright: je0azul5

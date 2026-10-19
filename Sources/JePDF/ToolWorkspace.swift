@@ -5,16 +5,18 @@ import UniformTypeIdentifiers
 import PDFCore
 
 struct PDFPreview: NSViewRepresentable {
+    @Environment(\.colorScheme) private var colorScheme
     let url: URL
     let password: String
     func makeNSView(context: Context) -> PDFView {
         let view = PDFView()
         view.autoScales = true
         view.displayMode = .singlePageContinuous
-        view.backgroundColor = NSColor(white: 0.92, alpha: 1)
         return view
     }
     func updateNSView(_ view: PDFView, context: Context) {
+        view.appearance = NSAppearance(named: colorScheme == .dark ? .darkAqua : .aqua)
+        view.backgroundColor = NSColor(white: colorScheme == .dark ? 0.07 : 0.94, alpha: 1)
         if view.document?.documentURL != url {
             view.document = PDFDocument(url: url)
         }
@@ -147,7 +149,7 @@ struct ToolWorkspace: View {
                     }.frame(width: 355)
                     Divider()
                     ZStack {
-                        Color(nsColor: NSColor(white: 0.94, alpha: 1))
+                        Theme.preview
                         if let url = previewURL {
                             if tool.acceptsImages {
                                 if let image = NSImage(contentsOf: url) {
@@ -192,7 +194,7 @@ struct ToolWorkspace: View {
                 }.padding(20)
             }
         }.frame(width: 960, height: 690)
-            .background(.white)
+            .background(Theme.surface)
             .interactiveDismissDisabled(busy)
             .alert("No se pudo completar", isPresented: Binding(get: { error != nil }, set: { if !$0 { error = nil } })) {
                 Button("Entendido", role: .cancel) { error = nil }
@@ -250,7 +252,7 @@ struct ToolWorkspace: View {
                         if previewURL == url { previewURL = files.first }
                         result = nil
                     } label: { Image(systemName: "xmark.circle.fill").foregroundStyle(.secondary) }.buttonStyle(.plain).accessibilityLabel("Quitar \(url.lastPathComponent)")
-                }.padding(10).background(Color.black.opacity(0.025), in: RoundedRectangle(cornerRadius: 8))
+                }.padding(10).background(Theme.mutedFill, in: RoundedRectangle(cornerRadius: 8))
             }
         }.disabled(busy)
     }

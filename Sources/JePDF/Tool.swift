@@ -23,10 +23,10 @@ struct Tool: Identifiable, Hashable {
     let available: Bool
     var color: Color {
         switch category {
-        case .organize: return Color(red: 0.95, green: 0.38, blue: 0.28)
-        case .convert: return Color(red: 0.27, green: 0.48, blue: 0.77)
-        case .edit: return Color(red: 0.65, green: 0.39, blue: 0.61)
-        case .security: return Color(red: 0.25, green: 0.57, blue: 0.48)
+        case .organize: return Theme.adaptive(0xF26147, 0xFF9981)
+        case .convert: return Theme.adaptive(0x457AC4, 0x89B5FA)
+        case .edit: return Theme.adaptive(0xA6639C, 0xD99AD0)
+        case .security: return Theme.adaptive(0x40917A, 0x7BCBB1)
         case .all: return .orange
         }
     }
