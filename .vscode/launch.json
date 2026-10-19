@@ -1,0 +1,44 @@
+{
+    "configurations": [
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder}",
+            "name": "Debug PDFStudio",
+            "target": "PDFStudio",
+            "configuration": "debug",
+            "preLaunchTask": "swift: Build Debug PDFStudio"
+        },
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder}",
+            "name": "Release PDFStudio",
+            "target": "PDFStudio",
+            "configuration": "release",
+            "preLaunchTask": "swift: Build Release PDFStudio"
+        },
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder}",
+            "name": "Debug PDFCoreChecks",
+            "target": "PDFCoreChecks",
+            "configuration": "debug",
+            "preLaunchTask": "swift: Build Debug PDFCoreChecks"
+        },
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder}",
+            "name": "Release PDFCoreChecks",
+            "target": "PDFCoreChecks",
+            "configuration": "release",
+            "preLaunchTask": "swift: Build Release PDFCoreChecks"
+        }
+    ]
+}
