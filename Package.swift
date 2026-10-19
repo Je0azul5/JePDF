@@ -2,15 +2,15 @@
 import PackageDescription
 
 let package = Package(
-    name: "PDFStudio",
+    name: "JePDF",
     platforms: [.macOS(.v13)],
     products: [
-        .executable(name: "PDFStudio", targets: ["PDFStudio"]),
+        .executable(name: "JePDF", targets: ["JePDF"]),
         .executable(name: "PDFCoreChecks", targets: ["PDFCoreChecks"])
     ],
     targets: [
         .target(name: "PDFCore"),
-        .executableTarget(name: "PDFStudio", dependencies: ["PDFCore"]),
+        .executableTarget(name: "JePDF", dependencies: ["PDFCore"]),
         .executableTarget(name: "PDFCoreChecks", dependencies: ["PDFCore"], path: "Tests/PDFCoreTests")
     ]
 )

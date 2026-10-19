@@ -45,7 +45,7 @@ private struct Job {
         guard let source = files.first else { throw PDFError.message("Selecciona un archivo.") }
         let document = try PDFEngine.open(source, password: inputPassword)
         if toolID == "jpg" {
-            let folder = destination.appendingPathComponent("folio-imagenes-\(UUID().uuidString.prefix(8))", isDirectory: true)
+            let folder = destination.appendingPathComponent("JePDF-imagenes-\(UUID().uuidString.prefix(8))", isDirectory: true)
             try FileManager.default.createDirectory(at: folder, withIntermediateDirectories: false)
             do {
                 let indices = try PDFEngine.pages(expression, count: document.pageCount)

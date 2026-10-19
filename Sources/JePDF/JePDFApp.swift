@@ -2,10 +2,10 @@ import SwiftUI
 import AppKit
 
 @main
-struct PDFStudioApp: App {
+struct JePDFApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) var delegate
     var body: some Scene {
-        WindowGroup {
+        WindowGroup("JePDF") {
             ContentView()
                 .frame(minWidth: 940, minHeight: 650)
                 .preferredColorScheme(.light)
@@ -106,7 +106,7 @@ struct ContentView: View {
         VStack(alignment: .leading, spacing: 28) {
             HStack(spacing: 10) {
                 Image(systemName: "square.stack.3d.up.fill").font(.system(size: 24)).foregroundStyle(Color(red: 0.93, green: 0.38, blue: 0.28))
-                Text("folio").font(.system(size: 27, weight: .bold, design: .rounded)).tracking(-0.8).foregroundStyle(ink)
+                JePDFWordmark()
             }.padding(.top, 30).padding(.bottom, 14)
             VStack(alignment: .leading, spacing: 6) {
                 Text("HERRAMIENTAS").font(.system(size: 10, weight: .semibold)).tracking(1.4).foregroundStyle(.secondary).padding(.bottom, 10).padding(.leading, 12)
@@ -129,8 +129,26 @@ struct ContentView: View {
                 Text("Lo tuyo se queda contigo.").font(.system(size: 13, weight: .semibold))
                 Text("Tus documentos se procesan directamente en este Mac.").font(.system(size: 12)).foregroundStyle(.secondary).lineSpacing(4)
             }.padding(16).background(Color(red: 0.95, green: 0.97, blue: 0.96), in: RoundedRectangle(cornerRadius: 12))
-            Text("folio para Mac   ·   v0.1.1").font(.system(size: 10)).foregroundStyle(.tertiary)
+            VStack(alignment: .leading, spacing: 5) {
+                Text("JePDF para Mac   ·   v0.1.2")
+                Text("Copyright: je0azul5")
+            }.font(.system(size: 10)).foregroundStyle(.secondary)
         }.padding(18).frame(width: 200).background(.white)
+    }
+}
+
+struct JePDFWordmark: View {
+    var body: some View {
+        (
+            Text("J").foregroundColor(Color(red: 0.18, green: 0.43, blue: 0.85)) +
+            Text("e").foregroundColor(Color(red: 0.10, green: 0.58, blue: 0.47)) +
+            Text("P").foregroundColor(Color(red: 0.86, green: 0.57, blue: 0.08)) +
+            Text("D").foregroundColor(Color(red: 0.92, green: 0.32, blue: 0.27)) +
+            Text("F").foregroundColor(Color(red: 0.58, green: 0.35, blue: 0.79))
+        )
+        .font(.system(size: 27, weight: .bold, design: .rounded))
+        .tracking(-0.8)
+        .accessibilityLabel("JePDF")
     }
 }
 

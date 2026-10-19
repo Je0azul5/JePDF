@@ -1,4 +1,4 @@
-# Folio para Mac
+# JePDF para Mac
 
 Aplicación nativa de herramientas PDF en español, creada con SwiftUI, AppKit y PDFKit. Procesa los archivos en el equipo y no usa servicios externos ni dependencias de terceros.
 
@@ -7,17 +7,17 @@ Aplicación nativa de herramientas PDF en español, creada con SwiftUI, AppKit y
 Requiere macOS 13 o posterior y las herramientas de línea de comandos de Xcode con Swift 5.9 o posterior.
 
 ```sh
-swift run PDFStudio
+swift run JePDF
 ```
 
 Para generar una aplicación que puedes abrir desde Finder:
 
 ```sh
 zsh scripts/build-app.sh
-open dist/Folio.app
+open dist/JePDF.app
 ```
 
-El script genera una app para la arquitectura del Mac donde se compila y la firma localmente. También crea `dist/Folio.zip` sin atributos extendidos: si la carpeta del proyecto está sincronizada con iCloud, descomprime ese ZIP en una carpeta local antes de abrirlo para evitar que los metadatos de sincronización afecten a la firma. La distribución pública requiere configurar un identificador propio, firma Developer ID y notarización de Apple.
+El script genera una app para la arquitectura del Mac donde se compila y la firma localmente. También crea `dist/JePDF.zip` sin atributos extendidos: si la carpeta del proyecto está sincronizada con iCloud, descomprime ese ZIP en una carpeta local antes de abrirlo para evitar que los metadatos de sincronización afecten a la firma. La distribución pública requiere configurar un identificador propio, firma Developer ID y notarización de Apple.
 
 ## Herramientas disponibles
 
@@ -51,10 +51,12 @@ Las siete comprobaciones generan sus propios documentos y cubren rangos inválid
 ## Estructura
 
 - `Sources/PDFCore`: operaciones PDF independientes de la interfaz.
-- `Sources/PDFStudio`: interfaz y flujo de exportación.
+- `Sources/JePDF`: interfaz y flujo de exportación.
 - `Tests/PDFCoreTests`: pruebas con documentos generados en memoria.
 - `scripts/build-app.sh`: empaquetado de la aplicación macOS.
 
 ## Estado de validación
 
-Versión experimental 0.1.1. La compresión ahora dibuja la imagen al tamaño físico original en vez de modificar la caja de una página de imagen; conserva la rotación y las cajas del PDF. Compilación optimizada para Apple Silicon y siete comprobaciones del motor superadas. La firma local del paquete ZIP se verificó después de extraerlo en una carpeta temporal. Se inspeccionaron visualmente el catálogo y el panel de herramientas; no se pudo confirmar el flujo completo de apertura y guardado mediante la automatización de ventanas, que empezó a devolver errores de tiempo de espera después de seleccionar un archivo. Ese recorrido sigue pendiente de una comprobación manual.
+Versión experimental 0.1.2. La compresión ahora dibuja la imagen al tamaño físico original en vez de modificar la caja de una página de imagen; conserva la rotación y las cajas del PDF. Compilación optimizada para Apple Silicon y siete comprobaciones del motor superadas. La firma local del paquete ZIP se verificó después de extraerlo en una carpeta temporal. Se inspeccionaron visualmente el catálogo y el panel de herramientas; no se pudo confirmar el flujo completo de apertura y guardado mediante la automatización de ventanas, que empezó a devolver errores de tiempo de espera después de seleccionar un archivo. Ese recorrido sigue pendiente de una comprobación manual.
+
+Copyright: je0azul5
